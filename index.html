@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CAT Products Manager</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <h1>CAT Products Manager</h1>
+
+  <h2>Add New Product</h2>
+  <form id="productForm">
+    <input type="text" id="productID" placeholder="Product ID" required />
+    <input type="text" id="productName" placeholder="Product Name" required />
+    <input type="text" id="productCategory" placeholder="Product Category" required />
+    <input type="text" id="productDescription" placeholder="Product Description" required />
+    <input type="number" id="productPrice" placeholder="Product Price" step="0.01" required />
+    <input type="number" id="productQuantity" placeholder="Product Quantity" required />
+    <button type="submit">Add Product</button>
+  </form>
+
+  <h2>Product List</h2>
+  <ul id="productList"></ul>
+
+  <!-- Link to external script -->
+  <script src="script.js"></script>
+</body>
+</html>
