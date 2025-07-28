@@ -4,12 +4,10 @@ document.getElementById("productForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const product = {
-    productID: document.getElementById("productID").value,
-    productName: document.getElementById("productName").value,
-    productCategory: document.getElementById("productCategory").value,
-    productDescription: document.getElementById("productDescription").value,
-    productPrice: parseFloat(document.getElementById("productPrice").value),
-    productQuantity: parseInt(document.getElementById("productQuantity").value)
+    name: document.getElementById("name").value,
+    category: document.getElementById("category").value,
+    price: parseFloat(document.getElementById("price").value),
+    stock: parseInt(document.getElementById("stock").value)
   };
 
   const res = await fetch(`${apiBaseUrl}/create`, {
@@ -33,13 +31,14 @@ async function loadProducts() {
     return;
   }
 
-  const products = await res.json();
+  const data = await res.json();
+  const products = data.products; // get the products array
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
   products.forEach(p => {
     const item = document.createElement("li");
-    item.textContent = `${p.productID}: ${p.productName} - $${p.productPrice} (${p.productCategory}) | Qty: ${p.productQuantity}`;
+    item.textContent = `${p.name} - $${p.price} (${p.category}) | stock: ${p.stock}`;
     list.appendChild(item);
   });
 }
